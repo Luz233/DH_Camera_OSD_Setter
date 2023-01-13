@@ -34,14 +34,14 @@ testjson="""{
                         }
                     ]
                 },
-                "jslsh": "P330522006722023011020099368441",
-                "fixmedins_code": "P33052200672",
-                "psn_no": "33050099000010000001689700",
-                "mdtrt_id": "330000167334638726901198550858",
-                "mdtrt_cert_no": "EE838411X",
-                "fixmedins_name": "长兴滨海大药房",
-                "setl_id": "330000167334638789600938673675",
-                "psn_name": "冯茹春"
+                "jslsh": "12345678",
+                "fixmedins_code": "12345678",
+                "psn_no": "12345678",
+                "mdtrt_id": "12345678",
+                "mdtrt_cert_no": "12345678",
+                "fixmedins_name": "XXXX药房",
+                "setl_id": "12345678",
+                "psn_name": "张三"
             }
         ]
     },
@@ -113,7 +113,8 @@ def main():
     while(1):
         try:
 	        nowtime=datetime.datetime.now()
-	        last=nowtime+datetime.timedelta(seconds=-6) 
+	        last=nowtime+datetime.timedelta(seconds=-6)
+ 
 	        medicine_list=json.loads(get_Medicine(istest=0,starttime=datetime.datetime.strftime(last,'%Y-%m-%d %H:%M:%S'),endtime=datetime.datetime.strftime(nowtime,'%Y-%m-%d %H:%M:%S')))['data']['setlinfo']  #调用正式接口
 	        #medicine_list=json.loads(get_Medicine(istest=1))['data']['setlinfo']  #调用测试数据
 	        logging.info(str(datetime.datetime.strftime(datetime.datetime.now(),'%Y-%m-%d %H:%M:%S'))+" : "+str(medicine_list))
